@@ -1,0 +1,135 @@
+@import url("reset.css");
+
+:root {
+  /* Primary Colors */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+
+  /* Neutral Colors */
+  --very-dark-blue: hsl(234, 12%, 34%);
+  --very-dark-blue-50: hsla(234, 12%, 34%, 0.5);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --very-light-gray: hsl(0, 0%, 98%);
+
+  /* Spacing Sizes */
+  --spacing-base: 8px;
+  --spacing-1: (var(--spacing-base));
+  --spacing-2: calc(var(--spacing-base) * 1.5);
+  --spacing-3: calc(var(--spacing-base) * 2);
+  --spacing-4: calc(var(--spacing-base) * 3);
+  --spacing-5: calc(var(--spacing-base) * 4);
+  --spacing-6: calc(var(--spacing-base) * 8);
+  --spacing-7: calc(var(--spacing-base) * 10);
+}
+
+html {
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  --font-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+    Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol;
+}
+
+body {
+  background-color: var(--very-light-gray);
+  color: var(--very-dark-blue);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+.center-content {
+  display: grid;
+  place-content: center;
+  padding: var(--spacing-7) var(--spacing-5);
+  gap: var(--spacing-7);
+}
+
+.front-page-intro {
+  text-align: center;
+  line-height: normal;
+  font-weight: 400;
+  width: min(540px, calc(100% - var(--spacing-5)));
+  margin-inline: auto;
+
+  & > *:not(:last-child) {
+    margin-block-end: clamp(
+      var(--spacing-1),
+      calc(var(--spacing-1) + (1vw) * 0.3),
+      var(--spacing-2)
+    );
+  }
+
+  & h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: clamp(0.02ch, 0.02ch + (100vw - 400vw) * 0.000025, 0.03ch);
+  }
+  & h2 {
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: clamp(0.02ch, 0.02ch + (100vw - 400vw) * 0.000025, 0.03ch);
+  }
+
+  & p {
+    color: var(--very-dark-blue-50);
+  }
+}
+
+.cards {
+  display: grid;
+  gap: var(--spacing-4);
+  grid-template-areas:
+    "supervisor"
+    "team-builder"
+    "karma"
+    "calculator";
+  align-content: center;
+
+  @media (min-width: 36em) {
+    grid-template-areas:
+      ". team-builder ."
+      "supervisor team-builder karma"
+      "supervisor calculator karma"
+      ". calculator .";
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
+    padding: var(--spacing-4);
+    width: 100%;
+
+    & h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    & p {
+      color: var(--very-dark-blue-50);
+      font-size: 0.8rem;
+    }
+
+    @media (min-width: 36em) {
+      max-width: 350px;
+    }
+  }
+
+  .card:nth-child(1) {
+    grid-area: supervisor;
+  }
+
+  .card:nth-child(2) {
+    grid-area: team-builder;
+  }
+
+  .card:nth-child(3) {
+    grid-area: karma;
+  }
+
+  .card:nth-child(4) {
+    grid-area: calculator;
+  }
+}
