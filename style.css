@@ -112,6 +112,11 @@ body {
       font-size: 0.8rem;
     }
 
+    img {
+      margin-inline-start: auto;
+      margin-block-start: auto;
+    }
+
     @media (min-width: 36em) {
       max-width: 350px;
     }
