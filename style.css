@@ -90,9 +90,9 @@ body {
   @media (min-width: 48em) {
     grid-template-areas:
       ". team-builder ."
-      "supervisor team-builder karma"
-      "supervisor calculator karma"
-      ". calculator .";
+      "supervisor team-builder calculator"
+      "supervisor karma calculator"
+      ". karma .";
   }
 
   .card {
